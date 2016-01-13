@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42377DF7E287B8CA42ED0BB5 /* Pods_storiesTelling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD25511862AF39334F4675C /* Pods_storiesTelling.framework */; };
+		941C9BF01C3D04F900534386 /* StorySummaryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9BEF1C3D04F900534386 /* StorySummaryCellTableViewCell.swift */; };
+		941C9BF31C3D3E0900534386 /* StorySummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9BF21C3D3E0900534386 /* StorySummaryViewController.swift */; };
+		941C9C2B1C3E454B00534386 /* StoryDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9C2A1C3E454B00534386 /* StoryDetialViewController.swift */; };
+		941C9C2E1C3E5E0500534386 /* part1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9C2D1C3E5E0500534386 /* part1TableViewCell.swift */; };
+		941C9C301C3E5E1400534386 /* subPartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9C2F1C3E5E1400534386 /* subPartTableViewCell.swift */; };
+		941C9C321C3E5E2800534386 /* subPartListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9C311C3E5E2800534386 /* subPartListTableViewCell.swift */; };
+		941E3F891C43A90000E8A9AB /* facebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E3F881C43A90000E8A9AB /* facebookLoginViewController.swift */; };
+		94453D1C1C44AB0100B0C936 /* createStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */; };
+		94453D1E1C44D7AF00B0C936 /* memberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D1D1C44D7AF00B0C936 /* memberViewController.swift */; };
 		94A872F01C28EF0C00E3ABB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A872EF1C28EF0C00E3ABB0 /* AppDelegate.swift */; };
 		94A872F21C28EF0C00E3ABB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A872F11C28EF0C00E3ABB0 /* ViewController.swift */; };
 		94A872F51C28EF0C00E3ABB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A872F31C28EF0C00E3ABB0 /* Main.storyboard */; };
 		94A872F71C28EF0C00E3ABB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94A872F61C28EF0C00E3ABB0 /* Assets.xcassets */; };
 		94A872FA1C28EF0C00E3ABB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A872F81C28EF0C00E3ABB0 /* LaunchScreen.storyboard */; };
 		94A873051C28EF0C00E3ABB0 /* storiesTellingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A873041C28EF0C00E3ABB0 /* storiesTellingTests.swift */; };
+		94FFE8331C424E9C0052F92E /* writePart1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFE8321C424E9C0052F92E /* writePart1ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +37,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		50E5C7A1E301D131BA036A59 /* Pods-storiesTelling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storiesTelling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-storiesTelling/Pods-storiesTelling.debug.xcconfig"; sourceTree = "<group>"; };
+		7F4E9D0182462CC265055296 /* Pods-storiesTelling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storiesTelling.release.xcconfig"; path = "Pods/Target Support Files/Pods-storiesTelling/Pods-storiesTelling.release.xcconfig"; sourceTree = "<group>"; };
+		941C9BEF1C3D04F900534386 /* StorySummaryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySummaryCellTableViewCell.swift; sourceTree = "<group>"; };
+		941C9BF21C3D3E0900534386 /* StorySummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySummaryViewController.swift; sourceTree = "<group>"; };
+		941C9C2A1C3E454B00534386 /* StoryDetialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetialViewController.swift; sourceTree = "<group>"; };
+		941C9C2D1C3E5E0500534386 /* part1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = part1TableViewCell.swift; sourceTree = "<group>"; };
+		941C9C2F1C3E5E1400534386 /* subPartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subPartTableViewCell.swift; sourceTree = "<group>"; };
+		941C9C311C3E5E2800534386 /* subPartListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subPartListTableViewCell.swift; sourceTree = "<group>"; };
+		941E3F881C43A90000E8A9AB /* facebookLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = facebookLoginViewController.swift; sourceTree = "<group>"; };
+		94453D181C44A67700B0C936 /* storiesTelling-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "storiesTelling-Bridging-Header.h"; sourceTree = "<group>"; };
+		94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createStoryViewController.swift; sourceTree = "<group>"; };
+		94453D1D1C44D7AF00B0C936 /* memberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberViewController.swift; sourceTree = "<group>"; };
 		94A872EC1C28EF0C00E3ABB0 /* storiesTelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storiesTelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A872EF1C28EF0C00E3ABB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94A872F11C28EF0C00E3ABB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +59,8 @@
 		94A873001C28EF0C00E3ABB0 /* storiesTellingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = storiesTellingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A873041C28EF0C00E3ABB0 /* storiesTellingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storiesTellingTests.swift; sourceTree = "<group>"; };
 		94A873061C28EF0C00E3ABB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94FFE8321C424E9C0052F92E /* writePart1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = writePart1ViewController.swift; sourceTree = "<group>"; };
+		DBD25511862AF39334F4675C /* Pods_storiesTelling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_storiesTelling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42377DF7E287B8CA42ED0BB5 /* Pods_storiesTelling.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +82,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64CD27469D7996127C625560 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DBD25511862AF39334F4675C /* Pods_storiesTelling.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8190BF696F163584EBF2549E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				50E5C7A1E301D131BA036A59 /* Pods-storiesTelling.debug.xcconfig */,
+				7F4E9D0182462CC265055296 /* Pods-storiesTelling.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		941C9BF11C3D054C00534386 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				941C9C2C1C3E5DCE00534386 /* CellView */,
+				94A872F11C28EF0C00E3ABB0 /* ViewController.swift */,
+				94FFE8321C424E9C0052F92E /* writePart1ViewController.swift */,
+				941C9BF21C3D3E0900534386 /* StorySummaryViewController.swift */,
+				941C9C2A1C3E454B00534386 /* StoryDetialViewController.swift */,
+				941E3F881C43A90000E8A9AB /* facebookLoginViewController.swift */,
+				94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */,
+				94453D1D1C44D7AF00B0C936 /* memberViewController.swift */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
+		941C9C2C1C3E5DCE00534386 /* CellView */ = {
+			isa = PBXGroup;
+			children = (
+				941C9BEF1C3D04F900534386 /* StorySummaryCellTableViewCell.swift */,
+				941C9C2D1C3E5E0500534386 /* part1TableViewCell.swift */,
+				941C9C2F1C3E5E1400534386 /* subPartTableViewCell.swift */,
+				941C9C311C3E5E2800534386 /* subPartListTableViewCell.swift */,
+			);
+			name = CellView;
+			sourceTree = "<group>";
+		};
 		94A872E31C28EF0C00E3ABB0 = {
 			isa = PBXGroup;
 			children = (
 				94A872EE1C28EF0C00E3ABB0 /* storiesTelling */,
 				94A873031C28EF0C00E3ABB0 /* storiesTellingTests */,
 				94A872ED1C28EF0C00E3ABB0 /* Products */,
+				8190BF696F163584EBF2549E /* Pods */,
+				64CD27469D7996127C625560 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +148,13 @@
 		94A872EE1C28EF0C00E3ABB0 /* storiesTelling */ = {
 			isa = PBXGroup;
 			children = (
+				941C9BF11C3D054C00534386 /* Swift */,
 				94A872EF1C28EF0C00E3ABB0 /* AppDelegate.swift */,
-				94A872F11C28EF0C00E3ABB0 /* ViewController.swift */,
 				94A872F31C28EF0C00E3ABB0 /* Main.storyboard */,
 				94A872F61C28EF0C00E3ABB0 /* Assets.xcassets */,
 				94A872F81C28EF0C00E3ABB0 /* LaunchScreen.storyboard */,
 				94A872FB1C28EF0C00E3ABB0 /* Info.plist */,
+				94453D181C44A67700B0C936 /* storiesTelling-Bridging-Header.h */,
 			);
 			path = storiesTelling;
 			sourceTree = "<group>";
@@ -103,9 +175,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 94A873091C28EF0C00E3ABB0 /* Build configuration list for PBXNativeTarget "storiesTelling" */;
 			buildPhases = (
+				906D30A5E36917B38F1513F1 /* Check Pods Manifest.lock */,
 				94A872E81C28EF0C00E3ABB0 /* Sources */,
 				94A872E91C28EF0C00E3ABB0 /* Frameworks */,
 				94A872EA1C28EF0C00E3ABB0 /* Resources */,
+				38113076EADB7FA5FA9828EA /* Embed Pods Frameworks */,
+				78AC8D1F9D57A8B4089D124E /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,13 +268,71 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		38113076EADB7FA5FA9828EA /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-storiesTelling/Pods-storiesTelling-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78AC8D1F9D57A8B4089D124E /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-storiesTelling/Pods-storiesTelling-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		906D30A5E36917B38F1513F1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		94A872E81C28EF0C00E3ABB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94FFE8331C424E9C0052F92E /* writePart1ViewController.swift in Sources */,
 				94A872F21C28EF0C00E3ABB0 /* ViewController.swift in Sources */,
+				941C9C321C3E5E2800534386 /* subPartListTableViewCell.swift in Sources */,
+				941C9C2B1C3E454B00534386 /* StoryDetialViewController.swift in Sources */,
+				94453D1E1C44D7AF00B0C936 /* memberViewController.swift in Sources */,
 				94A872F01C28EF0C00E3ABB0 /* AppDelegate.swift in Sources */,
+				941C9BF31C3D3E0900534386 /* StorySummaryViewController.swift in Sources */,
+				941C9C2E1C3E5E0500534386 /* part1TableViewCell.swift in Sources */,
+				941C9C301C3E5E1400534386 /* subPartTableViewCell.swift in Sources */,
+				941E3F891C43A90000E8A9AB /* facebookLoginViewController.swift in Sources */,
+				94453D1C1C44AB0100B0C936 /* createStoryViewController.swift in Sources */,
+				941C9BF01C3D04F900534386 /* StorySummaryCellTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +441,8 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -326,6 +461,7 @@
 		};
 		94A8730A1C28EF0C00E3ABB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 50E5C7A1E301D131BA036A59 /* Pods-storiesTelling.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -340,10 +476,13 @@
 		};
 		94A8730B1C28EF0C00E3ABB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F4E9D0182462CC265055296 /* Pods-storiesTelling.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "";
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = "";
 				INFOPLIST_FILE = storiesTelling/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ryanchengwy.storiesTelling;
