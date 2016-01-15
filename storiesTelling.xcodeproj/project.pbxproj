@@ -17,6 +17,9 @@
 		941E3F891C43A90000E8A9AB /* facebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E3F881C43A90000E8A9AB /* facebookLoginViewController.swift */; };
 		94453D1C1C44AB0100B0C936 /* createStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */; };
 		94453D1E1C44D7AF00B0C936 /* memberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D1D1C44D7AF00B0C936 /* memberViewController.swift */; };
+		94453D871C4771BB00B0C936 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D861C4771BB00B0C936 /* User.swift */; };
+		94453D891C4771F400B0C936 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D881C4771F400B0C936 /* Story.swift */; };
+		947BA0791C48C5AC001C9EAB /* photoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947BA0781C48C5AC001C9EAB /* photoViewController.swift */; };
 		94A872F01C28EF0C00E3ABB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A872EF1C28EF0C00E3ABB0 /* AppDelegate.swift */; };
 		94A872F21C28EF0C00E3ABB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A872F11C28EF0C00E3ABB0 /* ViewController.swift */; };
 		94A872F51C28EF0C00E3ABB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A872F31C28EF0C00E3ABB0 /* Main.storyboard */; };
@@ -49,6 +52,9 @@
 		94453D181C44A67700B0C936 /* storiesTelling-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "storiesTelling-Bridging-Header.h"; sourceTree = "<group>"; };
 		94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createStoryViewController.swift; sourceTree = "<group>"; };
 		94453D1D1C44D7AF00B0C936 /* memberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberViewController.swift; sourceTree = "<group>"; };
+		94453D861C4771BB00B0C936 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		94453D881C4771F400B0C936 /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
+		947BA0781C48C5AC001C9EAB /* photoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = photoViewController.swift; sourceTree = "<group>"; };
 		94A872EC1C28EF0C00E3ABB0 /* storiesTelling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storiesTelling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A872EF1C28EF0C00E3ABB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94A872F11C28EF0C00E3ABB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +108,8 @@
 		941C9BF11C3D054C00534386 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				94453D881C4771F400B0C936 /* Story.swift */,
+				94453D861C4771BB00B0C936 /* User.swift */,
 				941C9C2C1C3E5DCE00534386 /* CellView */,
 				94A872F11C28EF0C00E3ABB0 /* ViewController.swift */,
 				94FFE8321C424E9C0052F92E /* writePart1ViewController.swift */,
@@ -110,6 +118,7 @@
 				941E3F881C43A90000E8A9AB /* facebookLoginViewController.swift */,
 				94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */,
 				94453D1D1C44D7AF00B0C936 /* memberViewController.swift */,
+				947BA0781C48C5AC001C9EAB /* photoViewController.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -327,8 +336,11 @@
 				941C9C2B1C3E454B00534386 /* StoryDetialViewController.swift in Sources */,
 				94453D1E1C44D7AF00B0C936 /* memberViewController.swift in Sources */,
 				94A872F01C28EF0C00E3ABB0 /* AppDelegate.swift in Sources */,
+				94453D871C4771BB00B0C936 /* User.swift in Sources */,
+				94453D891C4771F400B0C936 /* Story.swift in Sources */,
 				941C9BF31C3D3E0900534386 /* StorySummaryViewController.swift in Sources */,
 				941C9C2E1C3E5E0500534386 /* part1TableViewCell.swift in Sources */,
+				947BA0791C48C5AC001C9EAB /* photoViewController.swift in Sources */,
 				941C9C301C3E5E1400534386 /* subPartTableViewCell.swift in Sources */,
 				941E3F891C43A90000E8A9AB /* facebookLoginViewController.swift in Sources */,
 				94453D1C1C44AB0100B0C936 /* createStoryViewController.swift in Sources */,

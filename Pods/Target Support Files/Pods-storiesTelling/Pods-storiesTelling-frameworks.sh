@@ -84,16 +84,24 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-storiesTelling/Alamofire.framework"
   install_framework "Pods-storiesTelling/Bolts.framework"
   install_framework "Pods-storiesTelling/FBSDKCoreKit.framework"
   install_framework "Pods-storiesTelling/FBSDKLoginKit.framework"
   install_framework "Pods-storiesTelling/FBSDKShareKit.framework"
+  install_framework "Pods-storiesTelling/SVProgressHUD.framework"
+  install_framework "Pods-storiesTelling/SwiftyJSON.framework"
   install_framework "Pods-storiesTelling/XCGLogger.framework"
+  install_framework "Pods-storiesTelling/YYWebImage.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-storiesTelling/Alamofire.framework"
   install_framework "Pods-storiesTelling/Bolts.framework"
   install_framework "Pods-storiesTelling/FBSDKCoreKit.framework"
   install_framework "Pods-storiesTelling/FBSDKLoginKit.framework"
   install_framework "Pods-storiesTelling/FBSDKShareKit.framework"
+  install_framework "Pods-storiesTelling/SVProgressHUD.framework"
+  install_framework "Pods-storiesTelling/SwiftyJSON.framework"
   install_framework "Pods-storiesTelling/XCGLogger.framework"
+  install_framework "Pods-storiesTelling/YYWebImage.framework"
 fi

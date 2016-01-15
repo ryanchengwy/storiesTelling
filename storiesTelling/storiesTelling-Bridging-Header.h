@@ -9,6 +9,7 @@
 #ifndef storiesTelling_Bridging_Header_h
 #define storiesTelling_Bridging_Header_h
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <Alamofire/Aloamofire.h>
 
 
 #endif /* storiesTelling_Bridging_Header_h */

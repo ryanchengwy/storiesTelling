@@ -15,6 +15,7 @@ class createStoryViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        tabBarController?.tabBar.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
