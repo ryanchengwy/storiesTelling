@@ -25,19 +25,26 @@ class photoViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let image = info["UIImagePickerControllerOriginalImmage"] as! UIImage
-        let paths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
+        
+        let image = info["UIImagePickerControllerOriginalImage"] as! UIImage
+        
+        let paths =
+        NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)
         let documentsDirectory = paths.first
         let interval = NSDate.timeIntervalSinceReferenceDate()
         let name = "\(interval).jpg"
-        let path = (documentsDirectory as? NSString)?.stringByAppendingPathComponent(name)
+        let path = (documentsDirectory as NSString?)?.stringByAppendingPathComponent(name)
         let data = UIImageJPEGRepresentation(image, 0.9)
         data?.writeToFile(path!, atomically: true)
         self.dismissViewControllerAnimated(true, completion: nil)
         
-    }
-    
+    }    
     @IBAction func selectFromAlbum(sender: AnyObject) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.delegate = self
+        self.presentViewController(imagePicker, animated: true, completion: nil)
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -10,28 +10,39 @@ import Foundation
 import SwiftyJSON
 
 struct Story {
+    var part: Int
     var id: Int
-    var ancestry: [String]
     var topic: String
     var setting: String
     var content: String
-    var finish: String
-    var user_id: String
-    var user: User
-    var view: Int
-
+    var parent: [Parent]?
+    var avatar: Avatar?
     
-   
     init(json:JSON) {
+        self.part = json["part"].intValue
         self.id = json["id"].intValue
-        self.ancestry = json["ancestry"].arrayObject as! [String]
         self.topic = json["topic"].stringValue
         self.setting = json["setting"].stringValue
         self.content = json["content"].stringValue
-        self.finish = json["finish"].stringValue
-        self.user_id = json["user_id"].stringValue
-        self.user = User(json: ["user"])
-        self.view = json ["view"].intValue
+        self.parent = []
+        let array = json["parent"].array
+        if let array = array {
+            for dic in array {
+                self.parent!.append( Parent(json: dic))
+            }
+        }
+        self.avatar = Avatar(json: json["avatar"])
+        
+    }
+    
+    init(parent:Parent) {
+    
+        self.part = parent.part
+        self.id = parent.id
+        self.topic = parent.topic
+        self.setting = parent.setting
+        self.content = parent.content
+//         self.avatar = parent.avatar
     }
 }
 
