@@ -15,6 +15,7 @@
 		941C9C301C3E5E1400534386 /* subPartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9C2F1C3E5E1400534386 /* subPartTableViewCell.swift */; };
 		941C9C321C3E5E2800534386 /* subPartListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9C311C3E5E2800534386 /* subPartListTableViewCell.swift */; };
 		941E3F891C43A90000E8A9AB /* facebookLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941E3F881C43A90000E8A9AB /* facebookLoginViewController.swift */; };
+		942C25F01C4FAC920034E4C7 /* StorySummaryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C25EF1C4FAC920034E4C7 /* StorySummaryTableViewController.swift */; };
 		94453D1C1C44AB0100B0C936 /* createStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */; };
 		94453D1E1C44D7AF00B0C936 /* memberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D1D1C44D7AF00B0C936 /* memberViewController.swift */; };
 		94453D891C4771F400B0C936 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D881C4771F400B0C936 /* Story.swift */; };
@@ -54,6 +55,7 @@
 		941C9C2F1C3E5E1400534386 /* subPartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subPartTableViewCell.swift; sourceTree = "<group>"; };
 		941C9C311C3E5E2800534386 /* subPartListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = subPartListTableViewCell.swift; sourceTree = "<group>"; };
 		941E3F881C43A90000E8A9AB /* facebookLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = facebookLoginViewController.swift; sourceTree = "<group>"; };
+		942C25EF1C4FAC920034E4C7 /* StorySummaryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySummaryTableViewController.swift; sourceTree = "<group>"; };
 		94453D181C44A67700B0C936 /* storiesTelling-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "storiesTelling-Bridging-Header.h"; sourceTree = "<group>"; };
 		94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createStoryViewController.swift; sourceTree = "<group>"; };
 		94453D1D1C44D7AF00B0C936 /* memberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberViewController.swift; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				945103541C4CD74200679F89 /* squareDisplayTableViewCell.xib */,
 				945103571C4CDA4200679F89 /* CollectionViewCell.swift */,
 				945103581C4CDA4200679F89 /* CollectionViewCell.xib */,
+				942C25EF1C4FAC920034E4C7 /* StorySummaryTableViewController.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -354,6 +357,7 @@
 				941C9C321C3E5E2800534386 /* subPartListTableViewCell.swift in Sources */,
 				941C9C2B1C3E454B00534386 /* StoryDetialViewController.swift in Sources */,
 				94453D1E1C44D7AF00B0C936 /* memberViewController.swift in Sources */,
+				942C25F01C4FAC920034E4C7 /* StorySummaryTableViewController.swift in Sources */,
 				94A872F01C28EF0C00E3ABB0 /* AppDelegate.swift in Sources */,
 				94453D891C4771F400B0C936 /* Story.swift in Sources */,
 				941C9BF31C3D3E0900534386 /* StorySummaryViewController.swift in Sources */,
