@@ -14,7 +14,8 @@ import YYWebImage
 class StorySummaryTableViewController: UITableViewController {
 
     @IBOutlet var storySummaryTable: UITableView!
-    let apiUrl = "http://139.162.22.162/api/v1/chapters/finished"
+    
+    let apiUrl = baseUrl + "api/v1/chapters/finished"
     var currentPage = 1
     var finishedStoryArray = [Story]()
     

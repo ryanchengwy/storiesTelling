@@ -712,7 +712,7 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D32-Hv-m8J" customClass="initalPageUICollectionView" customModule="storiesTelling" customModuleProvider="target">
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D32-Hv-m8J" customClass="initalPageUICollectionView" customModule="storiesTelling" customModuleProvider="target">
                                             <rect key="frame" x="8" y="37" width="584" height="213"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="hlA-3l-6Rn">
@@ -793,7 +793,7 @@
                                 <rect key="frame" x="0.0" y="342" width="600" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="s1d-8t-qC3" id="X2Q-ma-NlX">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="908-LR-wmO">

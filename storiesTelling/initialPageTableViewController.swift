@@ -10,6 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import YYWebImage
+let baseUrl = "http://139.162.22.162/"
 
 class initialPageTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -17,7 +18,7 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
     
     @IBOutlet var initalTableView: UITableView!
     var initPageItem = ["最熱門故事","最新故事","心情故事"]
-    let baseUrl = "http://139.162.22.162/"
+    
     var currentPage = 1
     var hotItemArray = [Story]()
 
@@ -120,25 +121,32 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         return cell
 
     }
-    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let tableRow = indexPath.item
-//        print(self.tableView.indexPathForSelectedRow)
-        print("tablerow:\(tableRow)")
+
+
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        print(sender)
+        var tableCell = sender?.superview
+        while tableCell is UITableViewCell == false {
+            tableCell = tableCell?!.superview
+        }
+        let targetCell = tableCell as! UITableViewCell
+        let tableIndexPath = self.tableView.indexPathForCell(targetCell)
+        print(tableIndexPath!.row)
+        
+        
+        if segue.identifier == "firstPageToDetial" {
+
+            let targetCollectionCell = sender as! UICollectionViewCell
+            let collectionView = sender?.superview as! UICollectionView
+            let collectionIndexPath = collectionView.indexPathForCell(targetCollectionCell)
+            print("item: \(collectionIndexPath!.item)")
+            let vc = segue.destinationViewController as! StoryDetialViewController
+            vc.story = self.hotItemArray[(collectionIndexPath?.item)!]
+          
+        }
+        
+
     }
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        
-//        if segue.identifier == "firstPageToDetial" {
-//            let cell = sender as! UICollectionViewCell
-//            let tableRow = self.initalTableView.indexPathForSelectedRow?.row
-//            let indexPath = collectionView?.indexPathForCell(cell)
-//            let vc = segue.destinationViewController as! StoryDetialViewController
-//            vc.story = self.hotItemArray[(indexPath?.item)!]
-//        
-//            
-//        }
-//        
-//
-//    }
 
 
     /*
