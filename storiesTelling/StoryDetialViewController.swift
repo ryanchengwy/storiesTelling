@@ -98,10 +98,10 @@ class StoryDetialViewController: UIViewController, UITableViewDataSource, UITabl
                     }
                 }
                 cell.part1ContentLabel.text = pStory.content
-                cell.part1SettingLabel.text = pStory.setting
+                cell.part1SettingLabel.text = "故事設定：\(pStory.setting)"
                 cell.part1TitleLabel.text = pStory.topic
             }else{
-                print("fk")
+                
             }
             
         }

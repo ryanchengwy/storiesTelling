@@ -1,15 +1,18 @@
 //
-//  squareDisplayTableViewCell.swift
+//  initialPageTableViewCell.swift
 //  storiesTelling
 //
-//  Created by Ryan on 18/1/2016.
+//  Created by Ryan on 21/1/2016.
 //  Copyright © 2016 Ryan. All rights reserved.
 //
 
 import UIKit
 
-class squareDisplayTableViewCell: UITableViewCell {
+class initialPageTableViewCell: UITableViewCell {
 
+    
+    @IBOutlet weak var collectionView: initalPageUICollectionView!
+    @IBOutlet weak var initialPageCellText: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +23,5 @@ class squareDisplayTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
