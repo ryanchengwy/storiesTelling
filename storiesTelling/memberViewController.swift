@@ -12,54 +12,52 @@ import Alamofire
 import YYWebImage
 import SwiftyJSON
 
+var auth_token: String?
+var selfUserID: String?
+
 class memberViewController: UIViewController {
 
     @IBOutlet weak var memberProfilePic: UIImageView!
     @IBOutlet weak var memberPageFBLoginButton: FBSDKLoginButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if let accessToken = FBSDKAccessToken.currentAccessToken() {
-//            
+        if let accessToken = FBSDKAccessToken.currentAccessToken() {
+            
 //            let apiUrl = baseUrl + "api/v1/login"
+//            let parameter = ["facebook_token" : "\(accessToken.tokenString)"]
 //            
-//            Alamofire.request(.POST, apiUrl, headers: [String : String(accessToken.tokenString)]?)
+//            Alamofire.request( .POST, apiUrl, parameters: parameter).responseJSON{ response in switch response.result {
+//            
 //            case .Success(let data):
 //                
-//                let result = JSON(data)["stories"]
+//                let result = JSON(data)
 //                
 //                for(_, subJson):(String, JSON) in result {
-//                    let story = Story(json: subJson)
-//                    
-//                    self.finishedStoryArray.append(story)
-//                    self.storySummaryTable.reloadData()
-//                    
-//                    
-//                    
-//                    
+//                    let user = User(json: subJson)
+//                    auth_token = user.auth_token
 //                }
-//                self.refreshControl?.endRefreshing()
-//                
-//                
+//            
 //            case .Failure(let error):
 //                print("\(error)")
 //                }
 //            }
-//
-//            
-//
-//            
-//        } else {
-//            let askUserLoginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("facebookLoginViewController")
-//            self.navigationController?.presentViewController(askUserLoginViewController!, animated: true, completion: nil)
-//        }
-
-        //Profile Pic
-
-        
-        // Do any additional setup after loading the view.
-
+            
+        } else {
+            
+            let askUserLoginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("facebookLoginViewController")
+            self.navigationController?.presentViewController(askUserLoginViewController!, animated: true, completion: nil)
+        }
     }
+    
 
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        let apiUrl = baseUrl + "api/v1/logout"
+        let parameter = ["auth_token" : "\(auth_token)"]
+        
+        Alamofire.request( .POST, apiUrl, parameters: parameter)
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

@@ -13,8 +13,7 @@ class StoryDetialViewController: UIViewController, UITableViewDataSource, UITabl
     var story:Story?
     var storyArray = [Story]()
     
-    @IBAction func likeButton(sender: AnyObject) {
-    }
+ 
     @IBAction func composeButton(sender: AnyObject) {
     }
     @IBAction func bookmarkButton(sender: AnyObject) {

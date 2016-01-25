@@ -21,6 +21,8 @@
 		942C262E1C510F620034E4C7 /* initialPageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C262D1C510F620034E4C7 /* initialPageTableViewCell.swift */; };
 		942C26321C520B150034E4C7 /* showAllStoriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C26311C520B150034E4C7 /* showAllStoriesTableViewCell.swift */; };
 		942C26341C5258020034E4C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 942C26331C5258010034E4C7 /* Main.storyboard */; };
+		942C26381C53587A0034E4C7 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942C26371C53587A0034E4C7 /* Login.swift */; };
+		942E2F061C538860000C6969 /* createStroyTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 942E2F051C538860000C6969 /* createStroyTableViewController.swift */; };
 		94453D1C1C44AB0100B0C936 /* createStoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */; };
 		94453D1E1C44D7AF00B0C936 /* memberViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D1D1C44D7AF00B0C936 /* memberViewController.swift */; };
 		94453D891C4771F400B0C936 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94453D881C4771F400B0C936 /* Story.swift */; };
@@ -32,6 +34,7 @@
 		94A872F71C28EF0C00E3ABB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94A872F61C28EF0C00E3ABB0 /* Assets.xcassets */; };
 		94A872FA1C28EF0C00E3ABB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A872F81C28EF0C00E3ABB0 /* LaunchScreen.storyboard */; };
 		94A873051C28EF0C00E3ABB0 /* storiesTellingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A873041C28EF0C00E3ABB0 /* storiesTellingTests.swift */; };
+		94B726B41C56101D005957DF /* PickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B726B31C56101D005957DF /* PickerViewController.swift */; };
 		94FFE8331C424E9C0052F92E /* writePart1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFE8321C424E9C0052F92E /* writePart1ViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +64,8 @@
 		942C262D1C510F620034E4C7 /* initialPageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = initialPageTableViewCell.swift; sourceTree = "<group>"; };
 		942C26311C520B150034E4C7 /* showAllStoriesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = showAllStoriesTableViewCell.swift; sourceTree = "<group>"; };
 		942C26331C5258010034E4C7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		942C26371C53587A0034E4C7 /* Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		942E2F051C538860000C6969 /* createStroyTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createStroyTableViewController.swift; sourceTree = "<group>"; };
 		94453D181C44A67700B0C936 /* storiesTelling-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "storiesTelling-Bridging-Header.h"; sourceTree = "<group>"; };
 		94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = createStoryViewController.swift; sourceTree = "<group>"; };
 		94453D1D1C44D7AF00B0C936 /* memberViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +82,7 @@
 		94A873001C28EF0C00E3ABB0 /* storiesTellingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = storiesTellingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94A873041C28EF0C00E3ABB0 /* storiesTellingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = storiesTellingTests.swift; sourceTree = "<group>"; };
 		94A873061C28EF0C00E3ABB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B726B31C56101D005957DF /* PickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickerViewController.swift; sourceTree = "<group>"; };
 		94FFE8321C424E9C0052F92E /* writePart1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = writePart1ViewController.swift; sourceTree = "<group>"; };
 		DBD25511862AF39334F4675C /* Pods_storiesTelling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_storiesTelling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -122,6 +128,7 @@
 			children = (
 				94453D881C4771F400B0C936 /* Story.swift */,
 				9451035D1C4CE5D400679F89 /* Parent.swift */,
+				942C26371C53587A0034E4C7 /* Login.swift */,
 				9451038D1C4E0ED000679F89 /* Avatar.swift */,
 				941C9C2C1C3E5DCE00534386 /* CellView */,
 				94A872F11C28EF0C00E3ABB0 /* ViewController.swift */,
@@ -133,6 +140,8 @@
 				94453D1D1C44D7AF00B0C936 /* memberViewController.swift */,
 				947BA0781C48C5AC001C9EAB /* photoViewController.swift */,
 				942C26251C50B72E0034E4C7 /* initialPageTableViewController.swift */,
+				942E2F051C538860000C6969 /* createStroyTableViewController.swift */,
+				94B726B31C56101D005957DF /* PickerViewController.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -357,6 +366,7 @@
 				941C9C321C3E5E2800534386 /* subPartListTableViewCell.swift in Sources */,
 				941C9C2B1C3E454B00534386 /* StoryDetialViewController.swift in Sources */,
 				94453D1E1C44D7AF00B0C936 /* memberViewController.swift in Sources */,
+				942C26381C53587A0034E4C7 /* Login.swift in Sources */,
 				942C25F01C4FAC920034E4C7 /* StorySummaryTableViewController.swift in Sources */,
 				94A872F01C28EF0C00E3ABB0 /* AppDelegate.swift in Sources */,
 				94453D891C4771F400B0C936 /* Story.swift in Sources */,
@@ -365,7 +375,9 @@
 				947BA0791C48C5AC001C9EAB /* photoViewController.swift in Sources */,
 				942C26321C520B150034E4C7 /* showAllStoriesTableViewCell.swift in Sources */,
 				942C262A1C50B8400034E4C7 /* initalPageUICollectionView.swift in Sources */,
+				94B726B41C56101D005957DF /* PickerViewController.swift in Sources */,
 				941C9C301C3E5E1400534386 /* subPartTableViewCell.swift in Sources */,
+				942E2F061C538860000C6969 /* createStroyTableViewController.swift in Sources */,
 				941E3F891C43A90000E8A9AB /* facebookLoginViewController.swift in Sources */,
 				94453D1C1C44AB0100B0C936 /* createStoryViewController.swift in Sources */,
 				941C9BF01C3D04F900534386 /* StorySummaryCellTableViewCell.swift in Sources */,

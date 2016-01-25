@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import YYWebImage
-let baseUrl = "http://139.162.22.162/"
+let baseUrl = "http://stori.crowdy.space/"
 
 class initialPageTableViewController: UITableViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -32,10 +32,15 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 //        self.tableView.rowHeight = UITableViewAutomaticDimension
 //        self.tableView.estimatedRowHeight = 50
+        tabBarController?.tabBar.tintColor = UIColor.orangeColor()
         getDataFromServerHotItem("api/v1/chapters/finished")
         
     }
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+        
+        self.tabBarController?.tabBar.hidden = false
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

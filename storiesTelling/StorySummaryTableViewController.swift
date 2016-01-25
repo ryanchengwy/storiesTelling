@@ -18,7 +18,7 @@ class StorySummaryTableViewController: UITableViewController {
     let apiUrl = baseUrl + "api/v1/chapters/finished"
     var currentPage = 1
     var finishedStoryArray = [Story]()
-    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
