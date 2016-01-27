@@ -132,7 +132,7 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         print(sender)
         var tableCell = sender?.superview
         while tableCell is UITableViewCell == false {
-            tableCell = tableCell?!.superview
+            tableCell = tableCell??.superview
         }
         let targetCell = tableCell as! UITableViewCell
         let tableIndexPath = self.tableView.indexPathForCell(targetCell)

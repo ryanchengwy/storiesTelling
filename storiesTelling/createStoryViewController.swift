@@ -10,7 +10,7 @@ import UIKit
 import FBSDKCoreKit
 
 class createStoryViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,9 +26,13 @@ class createStoryViewController: UIViewController {
     
 
     @IBAction func createNewStoryButton(sender: AnyObject) {
-        if let accessToken = FBSDKAccessToken.currentAccessToken() {
-            let showCreateNewStory = self.storyboard?.instantiateViewControllerWithIdentifier("writePart1ViewController")
-            self.navigationController?.pushViewController(showCreateNewStory!, animated: true)
+        if let _ = FBSDKAccessToken.currentAccessToken() {
+            let showCreateNewStory = self.storyboard?.instantiateViewControllerWithIdentifier("writePart1ViewController") as! createStroyTableViewController
+            
+            showCreateNewStory.delegate = self
+            
+            
+            self.navigationController?.pushViewController(showCreateNewStory, animated: true)
             
         } else {
             let askUserLoginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("facebookLoginViewController")
@@ -36,7 +40,7 @@ class createStoryViewController: UIViewController {
         }
     
     }
-
+    
     /*
     // MARK: - Navigation
 
@@ -46,5 +50,22 @@ class createStoryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    
+        
+        if segue.identifier == "segueToUnfinishStory" {
+            
+        }
+        
+    }
 
+}
+
+extension createStoryViewController : CreateStroyDelegate {
+
+    func storyCreated(result: String) {
+        print("result: " + result)
+    }
+    
 }

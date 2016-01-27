@@ -65,11 +65,13 @@ var loginInfo = []
                 for(_, subJson):(String, JSON) in result {
                     let login = Login(json: subJson)
                 
-                
-                    auth_token = login.auth_token
-                print("auth_token\(auth_token)")
-                    selfUserID = login.user_id
-                print("userid\(selfUserID)")
+                    let userDefault = NSUserDefaults.standardUserDefaults()
+                    
+                    userDefault.setObject("\(login.auth_token)", forKey: "auth_token")
+                    userDefault.setObject("\(login.user_id)", forKey: "user_id")
+                    userDefault.synchronize()
+                    print("\(login.auth_token)")
+
                 }
                 
             case .Failure(let error):
@@ -90,6 +92,8 @@ var loginInfo = []
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         let apiUrl = baseUrl + "api/v1/logout"
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let auth_token = userDefault.objectForKey("auth_token")
         let parameter = ["auth_token" : "\(auth_token)"]
         
         Alamofire.request( .POST, apiUrl, parameters: parameter)

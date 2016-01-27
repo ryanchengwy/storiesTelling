@@ -7,15 +7,17 @@
 //
 
 import UIKit
+import FBSDKCoreKit
+
 
 class StoryDetialViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
   
     var story:Story?
     var storyArray = [Story]()
+    var canCompose = false
     
- 
-    @IBAction func composeButton(sender: AnyObject) {
-    }
+    
+
     @IBAction func bookmarkButton(sender: AnyObject) {
     }
     
@@ -24,6 +26,10 @@ class StoryDetialViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if canCompose == true {
+                let composeButton = UIBarButtonItem(barButtonSystemItem: .Compose, target: self, action: "composeButtPressed:")
+            self.navigationItem.rightBarButtonItem = composeButton
+        }
         //Hide the TabBar
         self.tabBarController?.tabBar.hidden = true
         self.detailTableView.rowHeight = UITableViewAutomaticDimension
@@ -48,7 +54,18 @@ class StoryDetialViewController: UIViewController, UITableViewDataSource, UITabl
         
         self.detailTableView.reloadData()
     }
+    func composeButtPressed(sender: AnyObject){
+        if let _ = FBSDKAccessToken.currentAccessToken() {
+            let showCreateNewStory = self.storyboard?.instantiateViewControllerWithIdentifier("writePart2TableViewController")
+            self.navigationController?.pushViewController(showCreateNewStory!, animated: true)
+            
+        } else {
+            let askUserLoginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("facebookLoginViewController")
+            self.navigationController?.presentViewController(askUserLoginViewController!, animated: true, completion: nil)
+        }
 
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -97,7 +114,11 @@ class StoryDetialViewController: UIViewController, UITableViewDataSource, UITabl
                     }
                 }
                 cell.part1ContentLabel.text = pStory.content
+                if pStory.setting != "" {
                 cell.part1SettingLabel.text = "故事設定：\(pStory.setting)"
+                } else {
+                    cell.part1SettingLabel.text = ""
+                }
                 cell.part1TitleLabel.text = pStory.topic
             }else{
                 

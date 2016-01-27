@@ -12,16 +12,15 @@ import Alamofire
 import YYWebImage
 import SwiftyJSON
 
-var auth_token: String?
-var selfUserID: String?
+
 
 class memberViewController: UIViewController {
 
-    @IBOutlet weak var memberProfilePic: UIImageView!
+   
     @IBOutlet weak var memberPageFBLoginButton: FBSDKLoginButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let accessToken = FBSDKAccessToken.currentAccessToken() {
+        if let _ = FBSDKAccessToken.currentAccessToken() {
             
 //            let apiUrl = baseUrl + "api/v1/login"
 //            let parameter = ["facebook_token" : "\(accessToken.tokenString)"]
@@ -46,12 +45,16 @@ class memberViewController: UIViewController {
             
             let askUserLoginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("facebookLoginViewController")
             self.navigationController?.presentViewController(askUserLoginViewController!, animated: true, completion: nil)
+             memberPageFBLoginButton.hidden = true
         }
     }
     
 
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        memberPageFBLoginButton.hidden = true
         let apiUrl = baseUrl + "api/v1/logout"
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let auth_token = userDefault.objectForKey("auth_token")
         let parameter = ["auth_token" : "\(auth_token)"]
         
         Alamofire.request( .POST, apiUrl, parameters: parameter)
@@ -63,7 +66,15 @@ class memberViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(true)
+     if let _ = FBSDKAccessToken.currentAccessToken() {
+        memberPageFBLoginButton.hidden = false
+     } else {
+        
+        
+        }
+    }
     /*
     // MARK: - Navigation
 

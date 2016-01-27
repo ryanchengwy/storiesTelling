@@ -1,8 +1,8 @@
 //
-//  StorySummaryTableViewController.swift
+//  UnfinishedStroiesTableViewController.swift
 //  storiesTelling
 //
-//  Created by Ryan on 20/1/2016.
+//  Created by Ryan on 25/1/2016.
 //  Copyright © 2016 Ryan. All rights reserved.
 //
 
@@ -11,39 +11,37 @@ import Alamofire
 import SwiftyJSON
 import YYWebImage
 
-class StorySummaryTableViewController: UITableViewController {
 
-    @IBOutlet var storySummaryTable: UITableView!
-    
-    let apiUrl = baseUrl + "api/v1/chapters/finished"
+class UnfinishedStroiesTableViewController: UITableViewController {
+
+    @IBOutlet var storiesSummaryTable: UITableView!
+    let apiUrl = baseUrl + "api/v1/chapters/unfinished"
     var currentPage = 1
-    var finishedStoryArray = [Story]()
-  
+    var unfinishedStoryArray = [Story]()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if refreshControl == nil {
+       
             
-            refreshControl = UIRefreshControl()
-        }
+        self.refreshControl = UIRefreshControl()
         refreshControl?.attributedTitle = NSAttributedString(string: "Refreshing")
+        self.storiesSummaryTable.addSubview(self.refreshControl!)
         refreshControl?.addTarget(self, action: "getDataFromServer:", forControlEvents: .ValueChanged)
         
         //Auto height for the cell
-        self.storySummaryTable.rowHeight = UITableViewAutomaticDimension
-        self.storySummaryTable.estimatedRowHeight = 50
+        self.storiesSummaryTable.rowHeight = UITableViewAutomaticDimension
+        self.storiesSummaryTable.estimatedRowHeight = 50
         
         
         tabBarController?.tabBar.tintColor = UIColor.orangeColor()
-        storySummaryTable.dataSource = self
-        storySummaryTable.delegate = self
+        storiesSummaryTable.dataSource = self
+        storiesSummaryTable.delegate = self
         
         self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 49, right: 0)
         
         self.getDataFromServer(self.refreshControl!)
-        
     }
     
     func getDataFromServer(sender: AnyObject) {
@@ -54,13 +52,13 @@ class StorySummaryTableViewController: UITableViewController {
         Alamofire.request(.GET, apiPath, parameters: param).responseJSON { response in switch response.result {
         case .Success(let data):
             
-            let result = JSON(data)["stories"]
+            let result = JSON(data)["continue"]
             
             for(_, subJson):(String, JSON) in result {
                 let story = Story(json: subJson)
                 
-                self.finishedStoryArray.append(story)
-                self.storySummaryTable.reloadData()
+                self.unfinishedStoryArray.append(story)
+                self.storiesSummaryTable.reloadData()
                 
                 
                 
@@ -77,10 +75,10 @@ class StorySummaryTableViewController: UITableViewController {
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(true)
-        self.tabBarController?.tabBar.hidden = false
-        
         self.tableView.contentInset = UIEdgeInsets(top: 64, left: 0, bottom: 49, right: 0)
-
+        self.tabBarController?.tabBar.hidden = false
+        self.getDataFromServer(self.refreshControl!)
+        
         
     }
     override func didReceiveMemoryWarning() {
@@ -92,12 +90,12 @@ class StorySummaryTableViewController: UITableViewController {
     //MARK: tableView
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.finishedStoryArray.count
+        return self.unfinishedStoryArray.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let story = self.finishedStoryArray[indexPath.row]
+        let story = self.unfinishedStoryArray[indexPath.row]
         let cell = tableView.dequeueReusableCellWithIdentifier("StorySummaryCell", forIndexPath: indexPath) as! StorySummaryCellTableViewCell
         cell.storyCoverImage.image = nil
         
@@ -159,17 +157,19 @@ class StorySummaryTableViewController: UITableViewController {
     let randomPic = Int(arc4random_uniform(7))
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        if segue.identifier == "summaryToDetial" {
+        if segue.identifier == "unfinishedSummaryToDetial" {
             
             let vc = segue.destinationViewController as! StoryDetialViewController
-            vc.story = self.finishedStoryArray[(self.storySummaryTable.indexPathForSelectedRow?.row)!]
+            vc.story = self.unfinishedStoryArray[(self.storiesSummaryTable.indexPathForSelectedRow?.row)!]
+            vc.canCompose = true
             
             
         }
         
-        if let indexPath = self.storySummaryTable.indexPathForSelectedRow {
-            storySummaryTable.deselectRowAtIndexPath(indexPath, animated: true)
+        if let indexPath = self.storiesSummaryTable.indexPathForSelectedRow {
+            storiesSummaryTable.deselectRowAtIndexPath(indexPath, animated: true)
         }
     }
     
 }
+

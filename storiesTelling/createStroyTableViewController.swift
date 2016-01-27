@@ -9,11 +9,16 @@
 import UIKit
 import Alamofire
 
+protocol CreateStroyDelegate {
+    func storyCreated(result:String)
+}
 
 class createStroyTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+ 
+    var delegate:CreateStroyDelegate?
    
-  var cate = ""
+    var cate = ""
+    
     @IBOutlet weak var cateButtonText: UIButton!
     
     @IBAction func doneButtonPressed(sender: AnyObject) {
@@ -91,25 +96,75 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
     }
     func uploadDataToServer() {
         let apiUrl = baseUrl + "api/v1/chapters"
-        let imageData = UIImageJPEGRepresentation(self.imageViewCover.image!, 0.8)
+        var base64Decoded: NSString?
+        var imageData:NSData!
+        if self.imageViewCover.image != nil {
+            imageData  = UIImageJPEGRepresentation(self.imageViewCover.image!, 0.8)
+
+             base64Decoded = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        }
+
+        let userDefault = NSUserDefaults.standardUserDefaults()
+        let auth_token = userDefault.objectForKey("auth_token")
         
         let parameter = [
-            "topic": "\(topicTextField.text)",
-            "setting": "\(settingTextField.text)",
-            "content":"\(contentTextView.text)",
+            "auth_token": "\(auth_token!)",
+            "topic": "\(topicTextField.text!)",
+            "setting": "\(settingTextField.text!)",
+            "content":"\(contentTextView.text!)",
             "finish": "\(finishStorySwitch.on)",
-            "category": "\(cate)"
+            "category": "\(cate)",
+            "avatar":"\(base64Decoded!)"
         ]
         
+        print("parameter \(parameter)")
+//        Alamofire.request(.POST, apiUrl, parameters: parameter).responseJSON{ response in switch response.result {
+//
+//            case .Success(let data):
+//                print(data)
+//                    let alertController = UIAlertController(title: "上傳成功", message: nil, preferredStyle: .Alert)
+//                    let successButton = UIAlertAction (title: "確定", style: .Default) { (action: UIAlertAction) -> Void in
+//                        if self.finishStorySwitch.on == false{
+//                            self.navigationController?.popToRootViewControllerAnimated(true)
+//                        }
+//                        else{
+//                          self.navigationController?.popToRootViewControllerAnimated(true)
+//                        }
+//
+//                        self.delegate?.storyCreated("succeed")
+//
+//
+//                        let unfinishedStoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("UnfinishedStroiesList") as! UnfinishedStroiesTableViewController
+//
+//                        self.navigationController?.pushViewController(unfinishedStoryVC, animated: true)
+//
+//                        self.removeFromParentViewController()
+//
+//
+//
+//                    }
+//
+//                    alertController.addAction(successButton)
+//                    self.presentViewController(alertController, animated: true, completion: nil)
+//                    
+//            
+//
+//                
+//            case .Failure(let encodingError):
+//                print(encodingError)
+//            
+//
+//            }
+    
         Alamofire.upload(.POST, apiUrl,
             // define your headers here
-            headers: ["auth_token": "\(auth_token)"],
             multipartFormData: { multipartFormData in
                 
                 // import image to request
+                if imageData != nil {
             
                     multipartFormData.appendBodyPart(data: imageData!, name: "avatar", mimeType: "image/jpg")
-                
+                }
                 
                 // import parameters
                 for (key, value) in parameter {
@@ -121,9 +176,35 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
                 switch encodingResult {
                 case .Success(let upload, _, _):
                     upload.responseJSON { response in
-                        print("upload\(response)")
+                        print(response.result.value)
+                        
+//                        if let JSON = response.result.value {
+//                            let dic = JSON as! [String:String]
+//                           
+//                            print("JSON: \(dic["error"])")
+//                            
+//                            
+//                        }
+                        
                         let alertController = UIAlertController(title: "上傳成功", message: nil, preferredStyle: .Alert)
                         let successButton = UIAlertAction (title: "確定", style: .Default) { (action: UIAlertAction) -> Void in
+                            if self.finishStorySwitch.on == false{
+                                self.navigationController?.popToRootViewControllerAnimated(true)
+                            }
+                            else{
+                              self.navigationController?.popToRootViewControllerAnimated(true)
+                            }
+                            
+                            self.delegate?.storyCreated("succeed")
+                            
+                            
+                            let unfinishedStoryVC = self.storyboard?.instantiateViewControllerWithIdentifier("UnfinishedStroiesList") as! UnfinishedStroiesTableViewController
+
+                            self.navigationController?.pushViewController(unfinishedStoryVC, animated: true)
+                            
+                            self.removeFromParentViewController()
+                            
+
                             
                         }
 
@@ -135,8 +216,9 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
                     
                 case .Failure(let encodingError):
                     print(encodingError)
-                }
+                
         
+        }
         })
     }
     override func viewDidLoad() {
@@ -152,6 +234,7 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
