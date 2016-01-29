@@ -372,34 +372,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CU-se-fck">
-                                <rect key="frame" x="270" y="255" width="60" height="30"/>
-                                <state key="normal" title="新創故事"/>
-                                <connections>
-                                    <action selector="createNewStoryButton:" destination="PFX-qZ-iJJ" eventType="touchUpInside" id="W1B-vT-N9E"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zT-a1-Ag1">
-                                <rect key="frame" x="270" y="315" width="60" height="30"/>
-                                <state key="normal" title="我要接龍"/>
-                                <connections>
-                                    <segue destination="HKl-dl-e7k" kind="show" identifier="segueToUnfinishStory" id="Hhr-dR-qjm"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back" translatesAutoresizingMaskIntoConstraints="NO" id="GxA-MY-OgK">
+                                <rect key="frame" x="0.0" y="64" width="600" height="487"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5iw-9J-CDp">
+                                <rect key="frame" x="158.5" y="242" width="283" height="116"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CU-se-fck">
+                                        <rect key="frame" x="0.0" y="0.0" width="283" height="58"/>
+                                        <state key="normal" backgroundImage="button1-1"/>
+                                        <connections>
+                                            <action selector="createNewStoryButton:" destination="PFX-qZ-iJJ" eventType="touchUpInside" id="W1B-vT-N9E"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4zT-a1-Ag1">
+                                        <rect key="frame" x="0.0" y="58" width="283" height="58"/>
+                                        <state key="normal" backgroundImage="button2-1"/>
+                                        <connections>
+                                            <segue destination="HKl-dl-e7k" kind="show" identifier="segueToUnfinishStory" id="Hhr-dR-qjm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="7CU-se-fck" firstAttribute="centerY" secondItem="fP7-Hh-OVg" secondAttribute="centerY" constant="-30" id="F1n-tu-GiI"/>
-                            <constraint firstItem="7CU-se-fck" firstAttribute="centerX" secondItem="fP7-Hh-OVg" secondAttribute="centerX" id="JbJ-Ih-f3s"/>
-                            <constraint firstItem="4zT-a1-Ag1" firstAttribute="centerX" secondItem="fP7-Hh-OVg" secondAttribute="centerX" id="SYZ-2g-eh0"/>
-                            <constraint firstItem="4zT-a1-Ag1" firstAttribute="centerY" secondItem="fP7-Hh-OVg" secondAttribute="centerY" constant="30" id="lM8-Nt-gTt"/>
+                            <constraint firstItem="5iw-9J-CDp" firstAttribute="centerX" secondItem="fP7-Hh-OVg" secondAttribute="centerX" id="3ud-vx-wbp"/>
+                            <constraint firstItem="GxA-MY-OgK" firstAttribute="top" secondItem="deD-dZ-qCx" secondAttribute="bottom" id="P9w-JQ-jNq"/>
+                            <constraint firstAttribute="trailing" secondItem="GxA-MY-OgK" secondAttribute="trailing" id="S8x-Wi-CXe"/>
+                            <constraint firstItem="GxA-MY-OgK" firstAttribute="leading" secondItem="fP7-Hh-OVg" secondAttribute="leading" id="UPU-PU-8kw"/>
+                            <constraint firstItem="IcF-PN-Yyu" firstAttribute="top" secondItem="GxA-MY-OgK" secondAttribute="bottom" id="i2s-mX-4jj"/>
+                            <constraint firstItem="5iw-9J-CDp" firstAttribute="centerY" secondItem="fP7-Hh-OVg" secondAttribute="centerY" id="lKT-fO-VpM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="寫故事" id="jOJ-Rr-n3F"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn0-GI-AOF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1921" y="1041"/>
+            <point key="canvasLocation" x="1928" y="1107"/>
         </scene>
         <!--未完成的故事-->
         <scene sceneID="aMK-js-LXm">
@@ -1495,6 +1505,9 @@
         <image name="User Manual Filled" width="33" height="33"/>
         <image name="User Menu" width="33" height="33"/>
         <image name="User Menu Filled" width="33" height="33"/>
+        <image name="back" width="376" height="508"/>
+        <image name="button1-1" width="283" height="58"/>
+        <image name="button2-1" width="283" height="58"/>
         <image name="camera" width="512" height="512"/>
         <image name="showmeallstories" width="2554" height="1118"/>
     </resources>
