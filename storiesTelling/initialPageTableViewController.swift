@@ -18,7 +18,7 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
     
     @IBOutlet var initalTableView: UITableView!
     var initPageItem = ["最熱門故事","最新故事","心情故事"]
-    
+    var featureArray = ["https://wooflyd.typeform.com/to/c1ackf","https://www.facebook.com/crowdy.space/?fref=ts","https://www.facebook.com/events/490695534450570/"]
     var currentPage = 1
     var hotItemArray = [Story]()
 
@@ -32,6 +32,8 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
 //        self.tableView.rowHeight = UITableViewAutomaticDimension
 //        self.tableView.estimatedRowHeight = 50
+        self.navigationItem.titleView = UIImageView(image: UIImage(named: "crowdyLogo"))
+
         tabBarController?.tabBar.tintColor = UIColor.orangeColor()
         getDataFromServerHotItem("api/v1/chapters/finished")
         
@@ -45,6 +47,22 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    override func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        if scrollView.tag == 100 {
+            let page = Int(scrollView.contentOffset.x / scrollView.frame.width)
+            var tableCell:UIView! = scrollView.superview
+            while tableCell is featureTableViewCell == false  {
+                tableCell = tableCell.superview
+            }
+            
+            (tableCell as? featureTableViewCell)?.pageControl.currentPage = page
+        }
+      
+        
+    }
+    
     func getDataFromServerHotItem(sec: String) {
         
         let apiUrl = baseUrl + sec
@@ -74,17 +92,21 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         var rowNum = 0
         if section == 0 {
+            rowNum = 1
+        }
+        
+        if section == 1 {
             rowNum = initPageItem.count
             
         }
-        if section == 1{
+        if section == 2 {
             rowNum = 1
         }
         return rowNum
@@ -92,8 +114,12 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("featureTableViewCell", forIndexPath: indexPath) as! featureTableViewCell
+            return cell
+        }
+        
+        if indexPath.section == 1 {
         let cell = tableView.dequeueReusableCellWithIdentifier("initialTableViewCell", forIndexPath: indexPath) as! initialPageTableViewCell
         cell.initialPageCellText.text = initPageItem[indexPath.row]
         cell.collectionView.reloadData()
@@ -109,7 +135,10 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         var itemNum = 0
-        if section == 0 {
+        if collectionView.tag == 100 {
+        itemNum = featureArray.count
+        }
+        else {
         itemNum = hotItemArray.count
         }
         
@@ -117,13 +146,24 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
+        
+        if collectionView.tag == 100 {
+            
+            let url = self.featureArray[indexPath.row]
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("featureCollectionViewCell", forIndexPath: indexPath) as! featureCollectionViewCell
+            cell.featureImageView.image = UIImage(named: "feature\(indexPath.row)")
+            
+            return cell
+        } else {
+        
         let story = self.hotItemArray[indexPath.row]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
-        let randomPic = Int(arc4random_uniform(7))
+        let randomPic = Int(arc4random_uniform(9))
         cell.collectionViewCellImage.yy_setImageWithURL(NSURL(string: (story.avatar?.url)!), placeholder: UIImage(named: "\(randomPic)"))
         cell.collectionViewCellText.text = story.topic
         
         return cell
+        }
 
     }
 
@@ -149,7 +189,13 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
             vc.story = self.hotItemArray[(collectionIndexPath?.item)!]
           
         }
-        
+        if segue.identifier == "webViewSegue" {
+            let targetCollectionCell = sender as! UICollectionViewCell
+            let collectionView = sender?.superview as! UICollectionView
+            let collectionIndexPath = collectionView.indexPathForCell(targetCollectionCell)
+            let vc = segue.destinationViewController as! WebViewController
+            vc.webViewUrl = self.featureArray[(collectionIndexPath?.item)!]
+        }
 
     }
 

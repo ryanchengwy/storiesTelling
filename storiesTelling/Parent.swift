@@ -11,14 +11,14 @@ import SwiftyJSON
 
 struct Parent {
     var part:Int
-    var id: Int
+    var id: String
     var topic: String
     var content: String
     var setting: String
     
     init(json:JSON) {
         self.part = json["part"].intValue
-        self.id = json["id"].intValue
+        self.id = json["id"].stringValue
         self.topic = json["topic"].stringValue
         self.content = json["content"].stringValue
         self.setting = json["setting"].stringValue

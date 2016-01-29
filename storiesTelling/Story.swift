@@ -11,7 +11,7 @@ import SwiftyJSON
 
 struct Story {
     var part: Int
-    var id: Int
+    var id: String
     var topic: String
     var setting: String
     var content: String
@@ -20,7 +20,7 @@ struct Story {
     
     init(json:JSON) {
         self.part = json["part"].intValue
-        self.id = json["id"].intValue
+        self.id = json["id"].stringValue
         self.topic = json["topic"].stringValue
         self.setting = json["setting"].stringValue
         self.content = json["content"].stringValue

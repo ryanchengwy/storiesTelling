@@ -16,8 +16,9 @@ protocol CreateStroyDelegate {
 class createStroyTableViewController: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
  
     var delegate:CreateStroyDelegate?
+    let indicator = UIActivityIndicatorView(activityIndicatorStyle: .Gray)
    
-    var cate = ""
+    var cate = "1"
     
     @IBOutlet weak var cateButtonText: UIButton!
     
@@ -40,21 +41,25 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
         let classicButton = UIAlertAction (title: "經典故事", style: .Default) { (action: UIAlertAction) -> Void in
             
             self.cateButtonText.setTitle("經典故事", forState: .Normal)
-            self.cate = "經典故事"
+            self.cate = "1"
         }
         let endingButton = UIAlertAction (title: "結局改編", style: .Default) { (action: UIAlertAction) -> Void in
             
              self.cateButtonText.setTitle("結局改編", forState: .Normal)
-            self.cate = "結局改編"
+            self.cate = "2"
         }
         let newsButton = UIAlertAction (title: "時事創作", style: .Default) { (action: UIAlertAction) -> Void in
             
              self.cateButtonText.setTitle("時事創作", forState: .Normal)
-            self.cate = "時事創作"
+            self.cate = "3"
+        }
+        let cancelButton = UIAlertAction (title: "取消", style: .Cancel) { (action: UIAlertAction) -> Void in
+            
         }
         alertController.addAction(classicButton)
         alertController.addAction(endingButton)
         alertController.addAction(newsButton)
+        alertController.addAction(cancelButton)
         self.presentViewController(alertController, animated: true, completion: nil)
         
     }
@@ -95,17 +100,19 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     func uploadDataToServer() {
+        self.indicator.startAnimating()
         let apiUrl = baseUrl + "api/v1/chapters"
-        var base64Decoded: NSString?
         var imageData:NSData!
         if self.imageViewCover.image != nil {
+            
+            
             imageData  = UIImageJPEGRepresentation(self.imageViewCover.image!, 0.8)
-
-             base64Decoded = imageData.base64EncodedStringWithOptions(NSDataBase64EncodingOptions.Encoding64CharacterLineLength)
+        
         }
 
         let userDefault = NSUserDefaults.standardUserDefaults()
         let auth_token = userDefault.objectForKey("auth_token")
+        
         
         let parameter = [
             "auth_token": "\(auth_token!)",
@@ -113,9 +120,13 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
             "setting": "\(settingTextField.text!)",
             "content":"\(contentTextView.text!)",
             "finish": "\(finishStorySwitch.on)",
-            "category": "\(cate)",
-            "avatar":"\(base64Decoded!)"
+            "category_id": "\(cate)"
+            //"avatar":"\(base64Decoded!)"
         ]
+
+        //let parameter = ["auth_token":"-xz61tVzbyfcnaBUpYHK", "topic":"hello",
+          //  "content":"hello"]
+        
         
         print("parameter \(parameter)")
 //        Alamofire.request(.POST, apiUrl, parameters: parameter).responseJSON{ response in switch response.result {
@@ -156,14 +167,40 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
 //
 //            }
     
+        /*
+        Alamofire.upload(.POST, apiUrl, multipartFormData: { (multipartFormData) -> Void in
+            
+    
+            
+             multipartFormData.appendBodyPart(data: <#T##NSData#>, name: <#T##String#>, fileName: <#T##String#>, mimeType: <#T##String#>)
+            
+              multipartFormData.appendBodyPart(data: imageData, name: "avatar", mimeType: "image/jpg")
+            for (key, value) in parameter {
+                multipartFormData.appendBodyPart(data: value.dataUsingEncoding(NSUTF8StringEncoding)!, name: key)
+            }
+            
+            }) { (result) -> Void in
+                
+                print("result \(result)")
+                
+        }
+        */
+        
+        
         Alamofire.upload(.POST, apiUrl,
             // define your headers here
             multipartFormData: { multipartFormData in
                 
                 // import image to request
+                
+                 print("imageData \(imageData)")
+                
+                
+                
                 if imageData != nil {
+                    
+                    multipartFormData.appendBodyPart(data: imageData, name: "avatar", fileName: "photo.jpg", mimeType: "image/jpg")
             
-                    multipartFormData.appendBodyPart(data: imageData!, name: "avatar", mimeType: "image/jpg")
                 }
                 
                 // import parameters
@@ -177,15 +214,8 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
                 case .Success(let upload, _, _):
                     upload.responseJSON { response in
                         print(response.result.value)
-                        
-//                        if let JSON = response.result.value {
-//                            let dic = JSON as! [String:String]
-//                           
-//                            print("JSON: \(dic["error"])")
-//                            
-//                            
-//                        }
-                        
+                        self.indicator.stopAnimating()
+                   
                         let alertController = UIAlertController(title: "上傳成功", message: nil, preferredStyle: .Alert)
                         let successButton = UIAlertAction (title: "確定", style: .Default) { (action: UIAlertAction) -> Void in
                             if self.finishStorySwitch.on == false{
@@ -220,12 +250,18 @@ class createStroyTableViewController: UITableViewController, UIImagePickerContro
         
         }
         })
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         contentTextView.layer.borderColor = UIColor.lightGrayColor().CGColor
         contentTextView.layer.borderWidth = 1
-      
+        indicator.center.x = view.center.x
+        indicator.center.y = view.center.y - 50
+        indicator.color = UIColor.orangeColor()
+        view.addSubview(indicator)
+        cateButtonText.setTitle("經典故事", forState: .Normal)
+        
        
         
         // Uncomment the following line to preserve selection between presentations

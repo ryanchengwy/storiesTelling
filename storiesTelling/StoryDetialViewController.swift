@@ -56,8 +56,9 @@ class StoryDetialViewController: UIViewController, UITableViewDataSource, UITabl
     }
     func composeButtPressed(sender: AnyObject){
         if let _ = FBSDKAccessToken.currentAccessToken() {
-            let showCreateNewStory = self.storyboard?.instantiateViewControllerWithIdentifier("writePart2TableViewController")
-            self.navigationController?.pushViewController(showCreateNewStory!, animated: true)
+            let showCreateNewStory = self.storyboard?.instantiateViewControllerWithIdentifier("writePart2TableViewController") as! writePart2TableViewController
+            showCreateNewStory.parent_id = story!.id
+            self.navigationController?.pushViewController(showCreateNewStory, animated: true)
             
         } else {
             let askUserLoginViewController = self.storyboard?.instantiateViewControllerWithIdentifier("facebookLoginViewController")
@@ -103,6 +104,7 @@ class StoryDetialViewController: UIViewController, UITableViewDataSource, UITabl
                         let randomPic = Int(arc4random_uniform(7))
                         cell.storyImage.image = UIImage(named: "\(randomPic)")
                     } else {
+            
                         cell.storyImage.yy_setImageWithURL(NSURL(string: pStory.avatar!.url), options: .SetImageWithFadeAnimation)
                     }
                 } else {

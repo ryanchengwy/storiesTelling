@@ -50,7 +50,11 @@ class createStoryViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.hidden = false
+        
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     
         

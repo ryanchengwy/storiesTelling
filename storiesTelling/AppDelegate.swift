@@ -21,6 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
         
+        UINavigationBar.appearance().barTintColor =  UIColor(colorLiteralRed: 246/255, green: 80/255, blue: 52/255, alpha: 1.0)
+
+        UIBarButtonItem.appearance().tintColor = UIColor.blackColor()
+        UINavigationBar.appearance().tintColor = UIColor.blackColor()
+        
         return true
     }
 

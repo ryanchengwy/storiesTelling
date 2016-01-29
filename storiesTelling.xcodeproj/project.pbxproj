@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		42377DF7E287B8CA42ED0BB5 /* Pods_storiesTelling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBD25511862AF39334F4675C /* Pods_storiesTelling.framework */; };
+		9406CD6D1C5A49A1003FC1E5 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9406CD6C1C5A49A1003FC1E5 /* WebViewController.swift */; };
+		9406CD6F1C5B3A86003FC1E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9406CD6E1C5B3A86003FC1E5 /* User.swift */; };
+		9406CD731C5B3C41003FC1E5 /* ParticipatedStory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9406CD721C5B3C41003FC1E5 /* ParticipatedStory.swift */; };
 		941C9BF01C3D04F900534386 /* StorySummaryCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9BEF1C3D04F900534386 /* StorySummaryCellTableViewCell.swift */; };
 		941C9C2B1C3E454B00534386 /* StoryDetialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9C2A1C3E454B00534386 /* StoryDetialViewController.swift */; };
 		941C9C2E1C3E5E0500534386 /* part1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941C9C2D1C3E5E0500534386 /* part1TableViewCell.swift */; };
@@ -39,6 +42,9 @@
 		94B726E61C5723F1005957DF /* writePart2TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B726E51C5723F1005957DF /* writePart2TableViewController.swift */; };
 		94B726E81C574B50005957DF /* UserInfo.plist in Resources */ = {isa = PBXBuildFile; fileRef = 94B726E71C574B50005957DF /* UserInfo.plist */; };
 		94B726F01C5777F5005957DF /* featureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B726EF1C5777F5005957DF /* featureTableViewCell.swift */; };
+		94B7271E1C58A491005957DF /* memberProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7271D1C58A491005957DF /* memberProfileTableViewCell.swift */; };
+		94B727201C58A962005957DF /* memberTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7271F1C58A962005957DF /* memberTableViewController.swift */; };
+		94B7274E1C59FCF9005957DF /* featureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7274D1C59FCF9005957DF /* featureCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +60,9 @@
 /* Begin PBXFileReference section */
 		50E5C7A1E301D131BA036A59 /* Pods-storiesTelling.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storiesTelling.debug.xcconfig"; path = "Pods/Target Support Files/Pods-storiesTelling/Pods-storiesTelling.debug.xcconfig"; sourceTree = "<group>"; };
 		7F4E9D0182462CC265055296 /* Pods-storiesTelling.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-storiesTelling.release.xcconfig"; path = "Pods/Target Support Files/Pods-storiesTelling/Pods-storiesTelling.release.xcconfig"; sourceTree = "<group>"; };
+		9406CD6C1C5A49A1003FC1E5 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		9406CD6E1C5B3A86003FC1E5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		9406CD721C5B3C41003FC1E5 /* ParticipatedStory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticipatedStory.swift; sourceTree = "<group>"; };
 		941C9BEF1C3D04F900534386 /* StorySummaryCellTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorySummaryCellTableViewCell.swift; sourceTree = "<group>"; };
 		941C9C2A1C3E454B00534386 /* StoryDetialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StoryDetialViewController.swift; sourceTree = "<group>"; };
 		941C9C2D1C3E5E0500534386 /* part1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = part1TableViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +99,9 @@
 		94B726E51C5723F1005957DF /* writePart2TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = writePart2TableViewController.swift; sourceTree = "<group>"; };
 		94B726E71C574B50005957DF /* UserInfo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = UserInfo.plist; sourceTree = "<group>"; };
 		94B726EF1C5777F5005957DF /* featureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = featureTableViewCell.swift; sourceTree = "<group>"; };
+		94B7271D1C58A491005957DF /* memberProfileTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberProfileTableViewCell.swift; sourceTree = "<group>"; };
+		94B7271F1C58A962005957DF /* memberTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = memberTableViewController.swift; sourceTree = "<group>"; };
+		94B7274D1C59FCF9005957DF /* featureCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = featureCollectionViewCell.swift; sourceTree = "<group>"; };
 		DBD25511862AF39334F4675C /* Pods_storiesTelling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_storiesTelling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -129,14 +141,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		941C9BF11C3D054C00534386 /* Swift */ = {
+		9406CD741C5B41C4003FC1E5 /* modal */ = {
 			isa = PBXGroup;
 			children = (
 				94453D881C4771F400B0C936 /* Story.swift */,
 				9451035D1C4CE5D400679F89 /* Parent.swift */,
 				942C26371C53587A0034E4C7 /* Login.swift */,
 				9451038D1C4E0ED000679F89 /* Avatar.swift */,
-				941C9C2C1C3E5DCE00534386 /* CellView */,
+				9406CD6E1C5B3A86003FC1E5 /* User.swift */,
+				9406CD721C5B3C41003FC1E5 /* ParticipatedStory.swift */,
+			);
+			name = modal;
+			sourceTree = "<group>";
+		};
+		9406CD751C5B41F2003FC1E5 /* controller */ = {
+			isa = PBXGroup;
+			children = (
 				94A872F11C28EF0C00E3ABB0 /* ViewController.swift */,
 				94B726E51C5723F1005957DF /* writePart2TableViewController.swift */,
 				942C25EF1C4FAC920034E4C7 /* StorySummaryTableViewController.swift */,
@@ -145,10 +165,22 @@
 				941C9C2A1C3E454B00534386 /* StoryDetialViewController.swift */,
 				94453D1B1C44AB0100B0C936 /* createStoryViewController.swift */,
 				94453D1D1C44D7AF00B0C936 /* memberViewController.swift */,
+				94B7271F1C58A962005957DF /* memberTableViewController.swift */,
 				947BA0781C48C5AC001C9EAB /* photoViewController.swift */,
 				942C26251C50B72E0034E4C7 /* initialPageTableViewController.swift */,
 				942E2F051C538860000C6969 /* createStroyTableViewController.swift */,
 				94B726B31C56101D005957DF /* PickerViewController.swift */,
+				9406CD6C1C5A49A1003FC1E5 /* WebViewController.swift */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		941C9BF11C3D054C00534386 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				9406CD751C5B41F2003FC1E5 /* controller */,
+				9406CD741C5B41C4003FC1E5 /* modal */,
+				941C9C2C1C3E5DCE00534386 /* CellView */,
 			);
 			name = Swift;
 			sourceTree = "<group>";
@@ -165,6 +197,8 @@
 				942C26211C50B3C00034E4C7 /* CollectionViewCell.swift */,
 				942C26311C520B150034E4C7 /* showAllStoriesTableViewCell.swift */,
 				94B726EF1C5777F5005957DF /* featureTableViewCell.swift */,
+				94B7274D1C59FCF9005957DF /* featureCollectionViewCell.swift */,
+				94B7271D1C58A491005957DF /* memberProfileTableViewCell.swift */,
 			);
 			name = CellView;
 			sourceTree = "<group>";
@@ -367,9 +401,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94B7271E1C58A491005957DF /* memberProfileTableViewCell.swift in Sources */,
 				942C26261C50B72E0034E4C7 /* initialPageTableViewController.swift in Sources */,
 				94A872F21C28EF0C00E3ABB0 /* ViewController.swift in Sources */,
 				942C262E1C510F620034E4C7 /* initialPageTableViewCell.swift in Sources */,
+				9406CD6F1C5B3A86003FC1E5 /* User.swift in Sources */,
 				942C26221C50B3C00034E4C7 /* CollectionViewCell.swift in Sources */,
 				9451035E1C4CE5D400679F89 /* Parent.swift in Sources */,
 				941C9C321C3E5E2800534386 /* subPartListTableViewCell.swift in Sources */,
@@ -378,10 +414,14 @@
 				942C26381C53587A0034E4C7 /* Login.swift in Sources */,
 				942C25F01C4FAC920034E4C7 /* StorySummaryTableViewController.swift in Sources */,
 				94A872F01C28EF0C00E3ABB0 /* AppDelegate.swift in Sources */,
+				9406CD731C5B3C41003FC1E5 /* ParticipatedStory.swift in Sources */,
 				94453D891C4771F400B0C936 /* Story.swift in Sources */,
+				9406CD6D1C5A49A1003FC1E5 /* WebViewController.swift in Sources */,
+				94B727201C58A962005957DF /* memberTableViewController.swift in Sources */,
 				94B726B81C567212005957DF /* UnfinishedStroiesTableViewController.swift in Sources */,
 				941C9C2E1C3E5E0500534386 /* part1TableViewCell.swift in Sources */,
 				9451038E1C4E0ED000679F89 /* Avatar.swift in Sources */,
+				94B7274E1C59FCF9005957DF /* featureCollectionViewCell.swift in Sources */,
 				94B726F01C5777F5005957DF /* featureTableViewCell.swift in Sources */,
 				947BA0791C48C5AC001C9EAB /* photoViewController.swift in Sources */,
 				94B726E61C5723F1005957DF /* writePart2TableViewController.swift in Sources */,

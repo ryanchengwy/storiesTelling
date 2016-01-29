@@ -112,7 +112,7 @@ class StorySummaryTableViewController: UITableViewController {
                 cell.storyCoverImage.yy_setImageWithURL(NSURL(string: (story.avatar?.url)!), options: .SetImageWithFadeAnimation)
                 
             }else{
-                let randomPic = Int(arc4random_uniform(7))
+                let randomPic = Int(arc4random_uniform(9))
                 cell.storyCoverImage.image = UIImage(named: "\(randomPic)")
             }
         } else {
@@ -127,7 +127,7 @@ class StorySummaryTableViewController: UITableViewController {
                     cell.storyCoverImage.yy_setImageWithURL(NSURL(string: (story.avatar?.url)!), options: .SetImageWithFadeAnimation)
                     
                 }else{
-                    let randomPic = Int(arc4random_uniform(7))
+                    let randomPic = Int(arc4random_uniform(9))
                     cell.storyCoverImage.image = UIImage(named: "\(randomPic)")
                 }
                 
@@ -141,7 +141,7 @@ class StorySummaryTableViewController: UITableViewController {
                     cell.storyCoverImage.yy_setImageWithURL(NSURL(string: (story.avatar?.url)!), options: .SetImageWithFadeAnimation)
                     
                 }else{
-                    let randomPic = Int(arc4random_uniform(7))
+                    let randomPic = Int(arc4random_uniform(9))
                     cell.storyCoverImage.image = UIImage(named: "\(randomPic)")
                 }
                 
