@@ -17,10 +17,14 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
    
     
     @IBOutlet var initalTableView: UITableView!
-    var initPageItem = ["最熱門故事","最新故事","心情故事"]
+    var initPageItem = [String]()
+
     var featureArray = ["https://wooflyd.typeform.com/to/c1ackf","https://www.facebook.com/crowdy.space/?fref=ts","https://www.facebook.com/events/490695534450570/"]
     var currentPage = 1
-    var hotItemArray = [Story]()
+    var latestArray = [Story]()
+    var mostArray = [Story]()
+    var weekArray = [Story]()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +39,9 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         self.navigationItem.titleView = UIImageView(image: UIImage(named: "crowdyLogo"))
 
         tabBarController?.tabBar.tintColor = UIColor.orangeColor()
-        getDataFromServerHotItem("api/v1/chapters/finished")
+        getDataFromServerfinished("api/v1/chapters/finished")
+        getDataFromServermostpop("api/v1/chapters/mostpop")
+        getDataFromServerweekpop("api/v1/chapters/weekpop")
         
     }
     override func viewWillAppear(animated: Bool) {
@@ -63,36 +69,98 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         
     }
     
-    func getDataFromServerHotItem(sec: String) {
+    func getDataFromServerfinished(sec: String) {
+        self.initPageItem.append("1")
+        let apiUrl = baseUrl + sec
+        let apiPath = apiUrl
+        let param = ["page": currentPage]
+        
+        
+        Alamofire.request(.GET, apiPath, parameters: param).responseJSON { response in switch response.result {
+        case .Success(let data):
+
+            let result = JSON(data)["stories"]
+            
+            print("\(self.initPageItem)")
+            
+            for(_, subJson):(String, JSON) in result {
+                let story = Story(json: subJson)
+                self.latestArray.append(story)
+                self.tableView.reloadData()
+
+            }
+        case .Failure(let error):
+            print("\(error)")
+            }
+            
+        }
+        
+    }
+    func getDataFromServermostpop(sec: String) {
+          self.initPageItem.append("1")
         
         let apiUrl = baseUrl + sec
         let apiPath = apiUrl
         let param = ["page": currentPage]
         
+        
         Alamofire.request(.GET, apiPath, parameters: param).responseJSON { response in switch response.result {
         case .Success(let data):
             
-            let result = JSON(data)["stories"]
+            let result = JSON(data)["most_popular"]
+            
+            print("\(self.initPageItem)")
             
             for(_, subJson):(String, JSON) in result {
                 let story = Story(json: subJson)
-                
-                self.hotItemArray.append(story)
+                self.mostArray.append(story)
                 self.tableView.reloadData()
+                
             }
         case .Failure(let error):
             print("\(error)")
             }
+           
         }
         
     }
-
+    func getDataFromServerweekpop(sec: String) {
+        self.initPageItem.append("1")
+        
+        let apiUrl = baseUrl + sec
+        let apiPath = apiUrl
+        let param = ["page": currentPage]
+        
+        
+        Alamofire.request(.GET, apiPath, parameters: param).responseJSON { response in switch response.result {
+        case .Success(let data):
+            
+            let result = JSON(data)["week_popular"]
+            
+            print("\(self.initPageItem)")
+            
+            for(_, subJson):(String, JSON) in result {
+                let story = Story(json: subJson)
+                self.weekArray.append(story)
+                self.tableView.reloadData()
+                
+            }
+        case .Failure(let error):
+            print("\(error)")
+            }
+            
+        }
+        
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        print(initPageItem)
+  
+        return initPageItem.count + 2
+        
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,10 +171,17 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         }
         
         if section == 1 {
-            rowNum = initPageItem.count
+            rowNum = initPageItem.count - 2
             
         }
         if section == 2 {
+            rowNum = initPageItem.count - 2
+        }
+        if section == 3 {
+            rowNum = initPageItem.count - 2
+        }
+
+        if section == 4 {
             rowNum = 1
         }
         return rowNum
@@ -117,18 +192,27 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("featureTableViewCell", forIndexPath: indexPath) as! featureTableViewCell
             return cell
-        }
-        
-        if indexPath.section == 1 {
+        } else if indexPath.section == 1 {
         let cell = tableView.dequeueReusableCellWithIdentifier("initialTableViewCell", forIndexPath: indexPath) as! initialPageTableViewCell
-        cell.initialPageCellText.text = initPageItem[indexPath.row]
+        cell.initialPageCellText.text = "最新故事"
         cell.collectionView.reloadData()
         return cell
            
-        }
-        else {
-        let cell2 = tableView.dequeueReusableCellWithIdentifier("showMeAllCell", forIndexPath: indexPath) as! showAllStoriesTableViewCell
-        return cell2
+        } else if indexPath.section == 2 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("initialTableViewCell1", forIndexPath: indexPath) as! initialTableViewCell1
+            cell.initialPageCellText.text = "熱門故事"
+            cell.collectionView1.reloadData()
+            return cell
+            
+        } else if indexPath.section == 3 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("initialTableViewCell2", forIndexPath: indexPath) as! initialTableViewCell2
+            cell.initialPageCellText.text = "小編推介"
+            cell.collectionView2.reloadData()
+            return cell
+            
+        } else {
+        let cell = tableView.dequeueReusableCellWithIdentifier("showMeAllCell", forIndexPath: indexPath) as! showAllStoriesTableViewCell
+        return cell
         }
     
     }
@@ -137,9 +221,12 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         var itemNum = 0
         if collectionView.tag == 100 {
         itemNum = featureArray.count
-        }
-        else {
-        itemNum = hotItemArray.count
+        } else if collectionView.tag == 200 {
+            itemNum = latestArray.count
+        } else if collectionView.tag == 300 {
+            itemNum = mostArray.count
+        } else {
+        itemNum = weekArray.count
         }
         
         return itemNum
@@ -148,23 +235,38 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
         
         
         if collectionView.tag == 100 {
-            
-            let url = self.featureArray[indexPath.row]
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("featureCollectionViewCell", forIndexPath: indexPath) as! featureCollectionViewCell
             cell.featureImageView.image = UIImage(named: "feature\(indexPath.row)")
             
             return cell
-        } else {
+        } else if collectionView.tag == 200 {
         
-        let story = self.hotItemArray[indexPath.row]
+        let story = self.latestArray[indexPath.row]
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
         let randomPic = Int(arc4random_uniform(9))
         cell.collectionViewCellImage.yy_setImageWithURL(NSURL(string: (story.avatar?.url)!), placeholder: UIImage(named: "\(randomPic)"))
         cell.collectionViewCellText.text = story.topic
         
         return cell
+        } else if collectionView.tag == 300 {
+            let story = self.mostArray[indexPath.row]
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell1", forIndexPath: indexPath) as! CollectionViewCell1
+            let randomPic = Int(arc4random_uniform(9))
+            cell.collectionViewCellImage.yy_setImageWithURL(NSURL(string: (story.avatar?.url)!), placeholder: UIImage(named: "\(randomPic)"))
+            cell.collectionViewCellText.text = story.topic
+            
+            return cell
+            
+        } else {
+            let story = self.weekArray[indexPath.row]
+            let cell = collectionView.dequeueReusableCellWithReuseIdentifier("collectionViewCell2", forIndexPath: indexPath) as! CollectionViewCell2
+            let randomPic = Int(arc4random_uniform(9))
+            cell.collectionViewCellImage.yy_setImageWithURL(NSURL(string: (story.avatar?.url)!), placeholder: UIImage(named: "\(randomPic)"))
+            cell.collectionViewCellText.text = story.topic
+            
+            return cell
+            
         }
-
     }
 
 
@@ -186,8 +288,28 @@ class initialPageTableViewController: UITableViewController, UICollectionViewDel
             let collectionIndexPath = collectionView.indexPathForCell(targetCollectionCell)
             print("item: \(collectionIndexPath!.item)")
             let vc = segue.destinationViewController as! StoryDetialViewController
-            vc.story = self.hotItemArray[(collectionIndexPath?.item)!]
+            vc.story = self.latestArray[(collectionIndexPath?.item)!]
           
+        }
+        if segue.identifier == "firstPageToDetial1" {
+            
+            let targetCollectionCell = sender as! UICollectionViewCell
+            let collectionView = sender?.superview as! UICollectionView
+            let collectionIndexPath = collectionView.indexPathForCell(targetCollectionCell)
+            print("item: \(collectionIndexPath!.item)")
+            let vc = segue.destinationViewController as! StoryDetialViewController
+            vc.story = self.mostArray[(collectionIndexPath?.item)!]
+            
+        }
+        if segue.identifier == "firstPageToDetial2" {
+            
+            let targetCollectionCell = sender as! UICollectionViewCell
+            let collectionView = sender?.superview as! UICollectionView
+            let collectionIndexPath = collectionView.indexPathForCell(targetCollectionCell)
+            print("item: \(collectionIndexPath!.item)")
+            let vc = segue.destinationViewController as! StoryDetialViewController
+            vc.story = self.weekArray[(collectionIndexPath?.item)!]
+            
         }
         if segue.identifier == "webViewSegue" {
             let targetCollectionCell = sender as! UICollectionViewCell

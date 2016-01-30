@@ -20,12 +20,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "storiesTelling/initalPageUICollectionView.swift"
-            timestampString = "475661134.806091"
+            timestampString = "475778874.043853"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "collectionView(_:cellForItemAtIndexPath:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "getDataFromServer(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
